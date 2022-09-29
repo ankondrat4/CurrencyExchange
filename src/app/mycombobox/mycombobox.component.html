@@ -1,0 +1,17 @@
+<div class="Combobox">
+  <h3>{{name}}</h3>
+  <input type="text" placeholder="Виберіть валюту"
+  [(ngModel)]="inputItem"
+  (focus)="listHide=false"
+  (change)="onChange()"
+  >
+
+  <div class="options" *ngIf="!listHide && rezAPI.symbols">
+    <list-item *ngFor="let item of rezAPI.symbols; let i = index"
+               [ngClass]="{'selected': selectedIndex == i}"
+               (click)="selectItem(i)">
+      <p>{{item}}</p>
+    </list-item>
+
+  </div>
+</div>
